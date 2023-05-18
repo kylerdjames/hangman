@@ -1,0 +1,52 @@
+import os
+import sys
+def play(word):
+    os.system('clear')
+    showWord = ""
+    count = 0
+    for i in range(len(word)):
+        showWord += "_"
+    showWord = [*showWord]
+    string = [*word]
+    for y in showWord:
+        sys.stdout.write(y + " ")
+        
+    print()
+    pick = input("Enter a letter or the word: ")
+    while count != 6 :
+        x = False
+        for i in range(len(word)):
+            if string[i] == pick:
+                showWord[i] = pick
+                x = True
+            if string[i] == len(word):
+                print("Enter another Letter: ")
+        
+        if pick == word or showWord == [*word]:
+            print("You Got it!!!!")
+            print("The word was: " + word)
+            break    
+                
+        
+        
+        for y in showWord:
+            sys.stdout.write(y + " ")
+        if x == False:
+            count+= 1
+            print()
+            if(count == 6):
+                print("You Lost!!!")
+                print("The word was: " + word)
+                break
+            pick = input("Wrong!!! Your incorrect count is " + str(count) + " /6 now go again: ")
+            
+            
+        else:
+            print()
+            pick = input("Nice job!!! Your incorrect count is " + str(count) + " /6 now go again: ")
+        
+
+
+
+theWord = input("picker needs to pick a word: ")
+play(theWord)
